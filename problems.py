@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import sys
 
 def find_quotiant(a, b):
     print(float(a / b))
@@ -264,7 +264,162 @@ def largest_n_number():
             largest = numbers
     print(largest)
 
+def find_small_and_large():
+    n = int(input("How many numbers you want to add: "))
+    numbers = []
+    for i in range(n):
+        num = int(input("Enter a number:"))
+        numbers.append(num)
 
+    largest = numbers[0]
+    for number in numbers:
+        if number > largest:
+            largest = number
+    
+    smallest = numbers[0]
+    for number in numbers:
+        if number < smallest:
+            smallest = number
+    print(largest, smallest)
+
+def num_of_negative_or_positive(n):
+    num_of_positive = 0
+    num_of_negative = 0
+    numbers = []
+    for i in range(n):
+        num = int(input("Enter a Number: "))
+        numbers.append(num)
+    for num in numbers:
+        if num > 0:
+            num_of_positive += 1
+        if num < 0:
+            num_of_negative += 1
+    print(f"You gave {num_of_positive} positive and {num_of_negative} negative integers")
+
+def find_divisor():
+    n = int(input("Enter a number: "))
+    divisors = []
+    for i in range(1,n+1):
+       print(i)
+       if n % i == 0:
+          divisors.append(i)
+    print(divisors)
+           
+
+def find_perfect_positive():
+    n = int(input("Enter a number: "))
+    divisors = []
+    for i in range(1,n):
+       if n % i == 0:
+          divisors.append(i)
+   
+    if sum(divisors) == n:
+        print("Perfect Positive Number")
+    else:
+        print('Not a perfect positive Number')
+
+def find_prime():
+    n = int(input("Enter a number: "))
+    for i in range(2,n):
+       if n % i == 0:
+          print("Not a prime number")
+          return 
+    print("Prime Number")
+
+def take_positive_only():
+     not_positive = True
+     while not_positive:
+        n = int(input("Enter a number:"))
+        if n > 0:
+            not_positive = False
+            print("Its Positive")
+        else: 
+            print('Not Positive', file=sys.stderr)
+
+def sum_until_sentinal():
+    sentinal_prov = False
+    numbers = []
+    while sentinal_prov == False :
+         n = int(input("Enter a number:"))
+         if n == -999:
+             sentinal_prov = True
+         else:
+             numbers.append(n)
+    print(sum(numbers))
+
+
+def display_negative():
+    n = int(input("Enter a Number to make it negative:"))
+    negative = n - (n + n)
+    print(negative)
+
+
+def find_abs():
+    n = int(input('Enter a number to make it absolute:'))
+    if n >= 0 :
+        print(f"Absolute Value is {n}")
+    else:
+        absolute = n - (n + n)
+        print(f"Absolute Value is {absolute}")
+
+
+def find_two_even_odd():
+   
+    n1 = int(input('Enter first number: '))
+    n2 = int(input("Enter second number: "))
+    if n1 % 2 == 0 and n2%2 == 0:
+        print("Both are even")
+    elif n1 % 2 != 0 and n2%2 != 0:
+        print('Both are odd')
+    else :
+        print("One is even and One is odd")
+
+
+def  find_odd_from3():
+    numbers = []
+    no_of_odd = 0
+    for i in range(3):
+        n = int(input("Enter a number: "))
+        numbers.append(n)
+    for number in numbers:
+        if number % 2 != 0:
+            no_of_odd += 1
+    print(f'There are {no_of_odd} odd numbers')
+       
+
+def find_2_largest():
+    numbers = []
+    largest = []
+    for i in range(3):
+        n = int(input("Enter a number: "))
+        numbers.append(n)
+    smallest = numbers[0]
+    for number in numbers:
+            if number < smallest:
+                smallest = number
+    smallest_index = numbers.index(smallest)
+    numbers.pop(smallest_index)
+    print(f"Two largest numbers are {numbers}")
+
+
+def  find_2digit_int():
+    n = int(input('Enter a number: '))
+    if len(str(n)) == 2:
+        print("It is a 2 digit number.")
+    else :
+        print("Not a valid two digit number")
+
+
+def   find_abs_diff_2digit():
+    n = input("Enter a two digit number: ")
+    abs_diff = abs(int(n[0]) - int(n[1]))
+    print(abs_diff)
+
+
+def  reverse_integer():
+    n = [1,2,3,4]
+    print(reversed(n))
+    
 if __name__:
     # find_quotiant(12, 4)
     # sum_of_four()
@@ -284,7 +439,7 @@ if __name__:
     # find_largest_first_large() # suitable approach for 4 numbers
     # calculate_grade()
     # check_even_odd()
-    diff_in_time("22:40", "12:00")
+    # diff_in_time("22:40", "12:00")
     # sum_of_ten()
     # sum_of_n()
     # average_of_n()
@@ -293,3 +448,18 @@ if __name__:
     # calculate_n(2, 5)
     # largest_three_using_loop()
     # largest_n_number()
+    # find_small_and_large()
+    # num_of_negative_or_positive(3)
+    # find_divisor()
+    # find_perfect_positive()
+    # find_prime()
+    # take_positive_only()
+    # sum_until_sentinal()
+    # display_negative()
+    # find_abs()
+    # find_two_even_odd()
+    # find_odd_from3()
+    # find_2_largest()
+    # find_2digit_int()
+    # find_abs_diff_2digit()
+    reverse_integer()
