@@ -511,6 +511,385 @@ def problem_35():
         print(f"{n} is not a perfect number.")
 
 
+def problem_36():
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+    num = int(input("Enter a positive integer: "))
+    if is_prime(num):
+        print(f"{num} is a prime number.")
+    else:
+        print(f"{num} is not a prime number.")
+
+def problem_37():
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    while True:
+        num = int(input("Enter a positive integer: "))
+        if num <= 0:
+            print("Invalid input. Please enter a positive integer.")
+        else:
+            break
+
+    if is_prime(num):
+        print(f"{num} is a prime number.")
+    else:
+        print(f"{num} is not a prime number.")
+
+def problem_38():
+    total = 0
+    num = 0
+
+    while num != -999:
+        num = int(input("Enter a positive integer or -999 to terminate: "))
+        if num > 0:
+            total += num
+
+    print("The sum of the positive integers is:", total)
+
+
+def problem_39():
+    # Get input from the user
+    num = float(input("Enter a number: "))
+
+    # Calculate the negative of the number
+    negative_num = -1 * num
+
+    # Display the negative number
+    print("The negative of", num, "is", negative_num)
+
+
+def problem_40():
+    # Get input from the user
+    num = float(input("Enter a number: "))
+
+    # Calculate the absolute value of the number
+    absolute_num = num if num >= 0 else -num
+
+    # Display the absolute value
+    print("The absolute value of", num, "is", absolute_num)
+
+
+def problem_41():
+    # Get input from the user
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    # Check if both numbers are even, both odd, or one even and one odd
+    if num1 % 2 == 0 and num2 % 2 == 0:
+        print("Both numbers are even.")
+    elif num1 % 2 != 0 and num2 % 2 != 0:
+        print("Both numbers are odd.")
+    else:
+        print("One number is even and the other is odd.")
+
+
+def problem_42():
+    # Get input from the user
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+    num3 = int(input("Enter the third number: "))
+    odd_count = 0
+    if num1 % 2 != 0:
+        odd_count += 1
+    if num2 % 2 != 0:
+        odd_count += 1
+    if num3 % 2 != 0:
+        odd_count += 1
+    print("The number of odd numbers is:", odd_count)
+
+
+def problem_43():
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+    num3 = int(input("Enter the third number: "))
+    largest = max(num1, num2, num3)
+    smallest = min(num1, num2, num3)
+    second_largest = num1 + num2 + num3 - largest - smallest
+    print("The two largest numbers are:", largest, "and", second_largest)
+
+
+def problem_44():
+    # Get input from the user
+    num = int(input("Enter a number: "))
+
+    # Check if the number is a 2-digit positive integer
+    if 10 <= num <= 99:
+        print("The number is a 2-digit positive integer.")
+    else:
+        print("The number is not a 2-digit positive integer.")
+
+
+def problem_45():
+    number = int(input("Enter a 2-digit number: "))
+    tens_digit = number // 10
+    units_digit = number % 10
+    absolute_difference = abs(tens_digit - units_digit)
+    print("Absolute difference between the digits:", absolute_difference)
+
+
+def problem_46():
+    number = int(input("Enter an integer (up to 4 digits): "))
+    reverse_number = int(str(number)[::-1])
+    print("Original number:", number)
+    print("Reversed number:", reverse_number)
+
+
+def problem_47():
+    a = int(input("Enter the first number (a): "))
+    b = int(input("Enter the second number (b): "))
+
+    print("Before interchange: a =", a, "b =", b)
+
+    temp = a
+    a = b
+    b = temp
+
+    print("After interchange: a =", a, "b =", b)
+
+
+def problem_48():
+    a = int(input("Enter the first number (a): "))
+    b = int(input("Enter the second number (b): "))
+
+    print("Before interchange: a =", a, "b =", b)
+
+    a = a + b
+    b = a - b
+    a = a - b
+
+    print("After interchange: a =", a, "b =", b)
+
+
+def problem_49():
+    number = int(input("Enter a number: "))
+
+    # Calculate the sum of digits
+    digit_sum = sum(int(digit) for digit in str(number))
+
+    # Multiply the number with the sum of digits
+    result = number * digit_sum
+
+    print("Result:", result)
+
+
+def problem_50():
+    microseconds = int(input("Enter the number of microseconds: "))
+    weeks = microseconds // (7 * 24 * 60 * 60 * 1000000)
+    microseconds %= 7 * 24 * 60 * 60 * 1000000
+    days = microseconds // (24 * 60 * 60 * 1000000)
+    microseconds %= 24 * 60 * 60 * 1000000
+    hours = microseconds // (60 * 60 * 1000000)
+    microseconds %= 60 * 60 * 1000000
+    minutes = microseconds // (60 * 1000000)
+    microseconds %= 60 * 1000000
+    seconds = microseconds // 1000000
+    microseconds %= 1000000
+
+    print("Weeks:", weeks)
+    print("Days:", days)
+    print("Hours:", hours)
+    print("Minutes:", minutes)
+    print("Seconds:", seconds)
+    print("Microseconds:", microseconds)
+
+
+def problem_51():
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    if num1 % num2 == 0:
+        print("YES")
+    else:
+        print("NO")
+
+
+def problem_52():
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    if num2 % num1 == 0:
+        print("YES")
+    else:
+        print("NO")
+
+
+def problem_53():
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    if num1 % num2 == 0 or num2 % num1 == 0:
+        print("YES")
+    else:
+        print("NO")
+
+
+def problem_54():
+    numbers = []
+    num = int(input("Enter a number (or 0 to stop): "))
+
+    while num != 0:
+        numbers.append(num)
+        num = int(input("Enter a number (or 0 to stop): "))
+
+    total = sum(numbers)
+    print("Sum of the numbers:", total)
+
+
+def problem_55():
+    last_non_zero = 0
+    num = int(input("Enter a number (or 0 to stop): "))
+
+    while num != 0:
+        last_non_zero = num
+        num = int(input("Enter a number (or 0 to stop): "))
+
+    print("Last non-zero number:", last_non_zero)
+
+
+def problem_56():
+    numbers = []
+    num = int(input("Enter a number (or 0 to stop): "))
+
+    while num != 0:
+        numbers.append(num)
+        num = int(input("Enter a number (or 0 to stop): "))
+
+    if numbers:
+        max_num = max(numbers)
+        print("Largest number:", max_num)
+    else:
+        print("No numbers were entered.")
+
+
+def problem_57():
+    numbers = []
+    num = int(input("Enter a number (or 0 to stop): "))
+
+    while num != 0:
+        numbers.append(num)
+        num = int(input("Enter a number (or 0 to stop): "))
+
+    if numbers:
+        min_num = min(numbers)
+        print("Smallest number:", min_num)
+    else:
+        print("No numbers were entered.")
+
+
+def problem_58():
+    numbers = []
+    num = int(input("Enter a number (or 0 to stop): "))
+
+    while num != 0:
+        numbers.append(num)
+        num = int(input("Enter a number (or 0 to stop): "))
+
+    if numbers:
+        max_num = float('-inf')  # Set initial value to smallest possible negative number
+        for num in numbers:
+            if num > max_num:
+                max_num = num
+        print("Largest number:", max_num)
+    else:
+        print("No numbers were entered.")
+
+
+def problem_59():
+    numbers = []
+    for _ in range(10):
+        num = int(input("Enter a number: "))
+        numbers.append(num)
+
+    min_num = min(numbers)
+    print("Smallest number:", min_num)
+
+
+def problem_60():
+    even_count = 0
+    odd_count = 0
+
+    for _ in range(10):
+        num = int(input("Enter a number: "))
+        if num % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+
+    print("Count of even numbers:", even_count)
+    print("Count of odd numbers:", odd_count)
+
+
+def problem_61():
+    slimit = int(input("Enter the starting limit: "))
+    elimit = int(input("Enter the ending limit: "))
+
+    # Adjust the starting limit to the next even number if it's odd
+    if slimit % 2 != 0:
+        slimit += 1
+
+    # Iterate from starting limit to ending limit (inclusive) with a step of 2
+    for num in range(slimit, elimit + 1, 2):
+        print(num)
+
+
+def problem_62():
+    slimit = int(input("Enter the starting limit: "))
+    elimit = int(input("Enter the ending limit: "))
+
+    for num in range(slimit, elimit + 1):
+        if num % 2 == 0 or num % 3 == 0 or num % 5 == 0:
+            print(num)
+
+
+def problem_63():
+    import math
+
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    gcd = math.gcd(num1, num2)
+    print("GCD:", gcd)
+
+
+def problem_64():
+    import math
+
+    num1 = int(input("Enter the first number: "))
+    num2 = int(input("Enter the second number: "))
+
+    lcm = abs(num1 * num2) // math.gcd(num1, num2)
+    print("LCM:", lcm)
+
+
+def problem_65():
+    number = input("Enter a number: ")
+    digit_count = len(number)
+    print("The number has", digit_count, "digit(s).")
+
+
+def problem_66():
+    def calculate_remainder(a, b):
+        while a >= b:
+            a -= b
+        return a
+    a = int(input("Enter the value of a: "))
+    b = int(input("Enter the value of b: "))
+
+    remainder = calculate_remainder(a, b)
+    print("The remainder of", a, "divided by", b, "is", remainder)
+
+
 if __name__ == "__main__":
 
     # problem_1()
@@ -547,4 +926,41 @@ if __name__ == "__main__":
     # problem_32()
     # problem_33()
     # problem_34()
-    problem_35()
+    # problem_35()
+    # problem_36()
+    # problem_37()
+    # problem_38()
+    # problem_39()
+    # problem_41()
+    # problem_42()
+    # problem_43()
+    # problem_44()
+    # problem_45()
+    # problem_46()
+    # problem_47()
+    # problem_48()
+    # problem_49()
+    # problem_50()
+    # problem_51()
+    # problem_52()
+    # problem_53()
+    # problem_54()
+    # problem_55()
+    # problem_56()
+    # problem_57()
+    # problem_58()
+    # problem_59()
+    # problem_60()
+    # problem_61()
+    # problem_62()
+    # problem_63()
+    # problem_64()
+    # problem_65()
+     problem_66()
+
+
+
+
+
+
+
