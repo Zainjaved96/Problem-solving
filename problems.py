@@ -389,7 +389,7 @@ def  find_odd_from3():
 
 def find_2_largest():
     numbers = []
-    largest = []
+    
     for i in range(3):
         n = int(input("Enter a number: "))
         numbers.append(n)
@@ -417,9 +417,30 @@ def   find_abs_diff_2digit():
 
 
 def  reverse_integer():
-    n = [1,2,3,4]
-    print(reversed(n))
-    
+    number = input('Enter a number: ')
+    length = len(number) - 1
+    reverse = []
+    for digit in number:
+       reverse.append(number[length])
+       length -= 1
+    print(int(''.join(reverse)))
+
+
+def interchange_numbers():
+    a = int(input("Enter First number:"))
+    b = int(input("Enter Second number:"))
+    c = a 
+    a = b
+    b = c 
+    print(a,b)
+
+def interchange_without_var():
+    a = int(input('Enter a first Number:'))
+    b = int(input('Enter Second Number:'))
+    b, a = a,b 
+    print(a,b)
+
+
 if __name__:
     # find_quotiant(12, 4)
     # sum_of_four()
@@ -462,4 +483,6 @@ if __name__:
     # find_2_largest()
     # find_2digit_int()
     # find_abs_diff_2digit()
-    reverse_integer()
+    # reverse_integer()
+    # interchange_numbers()
+    interchange_without_var()
