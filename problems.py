@@ -2,6 +2,8 @@ from datetime import datetime
 import numpy as np
 import sys
 import math 
+
+
 def find_quotiant(a, b):
     print(float(a / b))
 
@@ -717,7 +719,6 @@ def mircorseconds_to_other_time():
     print(f"minutes: {minutes}")
     print(f"Seconds: {seconds}")
     print(f"Microseconds: {microseconds}")
-
 
 
     
