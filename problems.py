@@ -1,6 +1,7 @@
 from datetime import datetime
+import numpy as np
 import sys
-
+import math 
 def find_quotiant(a, b):
     print(float(a / b))
 
@@ -189,10 +190,12 @@ def check_even_odd():
         print('number is odd')
 
 
-def diff_in_time(time1, time2):
-    time1 = datetime(time1, '%H:%M').time()
-    time2 = datetime(time2, '%H:%M').time()
-    print(time)
+def diff_in_time():
+    time1 = input('Enter Time in hh:mm format: ')
+    time2 = input('Enter Time in hh:mm format: ')
+    time1 = datetime.strptime(time1, '%H:%M')
+    time2 = datetime.strptime(time2, '%H:%M')
+    print(time2 - time1)
 
 
 def sum_of_ten():
@@ -300,10 +303,10 @@ def find_divisor():
     n = int(input("Enter a number: "))
     divisors = []
     for i in range(1,n+1):
-       print(i)
        if n % i == 0:
           divisors.append(i)
     print(divisors)
+    return divisors 
            
 
 def find_perfect_positive():
@@ -440,7 +443,284 @@ def interchange_without_var():
     b, a = a,b 
     print(a,b)
 
+def  multiply_sum_digit():
+    n = input('Enter a Multi-digit number:')
+    digits = []
+    for digit in n:
+        digits.append(int(digit))
+    digit_sum = sum(digits)
+    print(int(n) * digit_sum)
 
+
+def first_divisible_second():
+    first_num = int(input('Enter First Number:'))
+    second_num = int(input('Enter Second Number:'))
+    if first_num % second_num == 0:
+        print('YES')
+
+def second_divisible_first():
+    first_num = int(input('Enter First Number:'))
+    second_num = int(input('Enter Second Number:'))
+    if  second_num % first_num == 0:
+        print('YES')
+
+def  each_other_divisble():
+    first_num = int(input('Enter First Number:'))
+    second_num = int(input('Enter Second Number:'))
+    if  second_num % first_num == 0 or  first_num % second_num == 0:    
+        print('YES')
+
+def zero_sentinal():
+    sentinal_prov = False
+    numbers = []
+    while sentinal_prov == False :
+         n = int(input("Enter a number:"))
+         if n == 0:
+             sentinal_prov = True
+         else:
+             numbers.append(n)
+    print(sum(numbers))
+
+def sentinal_last_nonzero():
+    sentinal_prov = False
+    numbers = []
+    while sentinal_prov == False :
+         n = int(input("Enter a number:"))
+         if n == 0:
+             sentinal_prov = True
+         else:
+             numbers.append(n)
+    print(numbers[-1])
+
+def sentinal_largest():
+    sentinal_prov = False
+    numbers = []
+    largest = 0
+    while sentinal_prov == False :
+         n = int(input("Enter a number:"))
+         if n == 0:
+             sentinal_prov = True
+         else:
+             numbers.append(n)
+             if n > largest:
+                 largest = n
+    print(f"Largest Value is: {largest}")
+
+def sentinal_smallest():
+   sentinal_prov = False
+   numbers = []
+   while sentinal_prov == False:
+       n = int(input('Enter a number: '))
+       if n == 0:
+           break
+       if len(numbers) == 0:
+           numbers.append(n)
+           smallest = n
+           continue
+       if n < smallest:
+           smallest = n
+   print(smallest)
+
+def small_from_10():
+    numbers = []
+    for i in range(10):
+        n = int(input('Enter Any Numbers:'))
+        numbers.append(n)
+    smallest = numbers[0]
+    for number in numbers:
+        if number < smallest:
+            smallest == number
+    print(smallest)
+
+
+def even_odd_from_10():
+    no_of_odd = 0
+    no_of_even = 0
+    for i in range(10):
+        n = int(input('Enter a Number:'))
+        if n % 2 == 0 :
+            no_of_even += 1
+        else :
+            no_of_odd += 1 
+    print(f"Number of Even numbers are: {no_of_even}")
+    print(f"Number of Odd numbers are: {no_of_odd}")
+
+def even_range_Limit():
+    Slimit = int(input('Enter Slimit:')) + 1
+    Wlimit = int(input('Enter Elimit:'))
+    even_range = []
+    for i in range(Slimit,Wlimit):
+        if i % 2 == 0:
+            even_range.append(i)
+    print(even_range)
+
+def divisble_range():
+    Slimit = int(input('Enter Slimit:')) + 1
+    Wlimit = int(input('Enter Elimit:'))
+    divisble_range = []
+    for i in range(Slimit,Wlimit):
+        if i % 2 == 0 or i % 3 == 0 or i % 5 == 0:
+            divisble_range.append(i)
+    print(divisble_range)
+
+def find_GCD():
+    num1 = find_divisor()
+    num2 = find_divisor()
+    common_divisors = np.intersect1d(num1,num2)
+    GCD = np.max(common_divisors)
+    print(f"GCD of two number is {GCD}")
+
+def  find_three_GCD():
+    num1 = find_divisor()
+    num2 = find_divisor()
+    num3 = find_divisor()
+    common_divisors = np.intersect1d(num1,num2,num3)
+    GCD = np.max(common_divisors)
+    print(f"GCD of three numbers is: {GCD}")
+
+
+def find_lcm():
+    num1 = int(input('Enter a Number :'))
+    num2 = int(input('Enter a Number :'))
+    print(math.lcm(num1,num2))
+
+
+def find_digit():
+    n = int(input('Enter a Number: '))
+    print(len(str(n)))
+
+
+def digits_to_num():
+    sentinal_prov = False
+    numbers = []
+    while sentinal_prov == False :
+         n = int(input("Enter a number:"))
+         if n == 9:
+             sentinal_prov = True
+         else:
+             numbers.append(n)
+    decimal = int(''.join(map(str, numbers)))
+    print(f"Decimal number is {decimal}")
+
+def digits_to_num_reverse():
+    sentinal_prov = False
+    numbers = []
+    while sentinal_prov == False :
+         n = int(input("Enter a number:"))
+         if n == 9:
+             sentinal_prov = True
+         else:
+             numbers.append(n)
+    print(numbers)
+    numbers = numbers[::-1]
+    print(numbers)
+    decimal = int(''.join(map(str, numbers)))
+    print(f"Decimal number is {decimal}")
+
+def  convert_base_9_obo():
+    n  = int(input('Enter a Number:'))
+    quotient = n
+    converted = False
+    remainders = []
+    while converted == False:
+        remainder = quotient % 9
+        remainder = remainders.append(remainder)
+        quotient = math.floor(quotient / 9)
+        if quotient == 0:
+            converted = True
+    for number in remainders:
+        print(number)
+
+def  convert_base_9_decimal():
+    n  = int(input('Enter a Number:'))
+    quotient = n
+    converted = False
+    remainders = []
+    while converted == False:
+        remainder = quotient % 9
+        remainder = remainders.append(remainder)
+        quotient = math.floor(quotient / 9)
+        if quotient == 0:
+            converted = True
+    
+    integer = int(''.join(map(str,remainders)))
+    print(integer)
+
+def convertBase9ToBinary():
+    digits = []
+    sentinal_given = False
+    i = 0
+    while sentinal_given == False:
+        n = int(input('Enter a Number: '))
+        if n == 9 :
+            sentinal_given = True
+        else : 
+            digits.append(n)
+    digits = reversed(digits)
+    total_sum = "0b0"
+    for digit in digits:
+        binary_value = bin(digit)
+        total_sum = bin(int(total_sum, 2) + int(binary_value, 2))
+    total_sum = total_sum[2:]
+    print(total_sum)
+
+def convertToHexa(): 
+    remainders = []
+    quotient = int(input('Enter a Number: '))
+    converted = False
+    while converted == False:
+        remainder = quotient % 16 
+        quotient  = int(quotient / 16)
+        remainders.append(remainder)
+        if quotient == 0 :
+            converted = True 
+    remainders = reversed(remainders)
+    for remainder in remainders:
+       string_num = str(remainder)
+       num = string_num.replace('10', 'A').replace('11', 'B').replace('12', 'C').replace('13', 'D').replace('14', 'E').replace('15', 'F')
+       print(num)
+def ascending_order():
+        A = int(input('Enter a Number'))
+        B = int(input('Enter a Number'))
+        C = int(input('Enter a Number'))
+        num = [A,B,C]
+        num.sort() 
+        print(num)
+
+def  pressure_temp_warning():
+    pressure = int(input('Enter Value of Pressure: '))
+    temp = int(input('Enter Value of Pressure: '))
+    if temp >= 100 or pressure >= 200:
+        print('WARNING')
+
+def division_mod_without_operator():
+    divident = int(input("Enter the divident: "))
+    divisor = int(input('Enter the divisor: '))
+    quotient = 0
+    while divident >= divisor:
+        divident -= divisor
+        quotient += 1 
+    
+    print(f"a/b is = {quotient}")
+    print(f'Remainder is = {divident}')
+
+def mircorseconds_to_other_time():
+    microseconds = int(input('Enter micorseconds'))
+    weeks, microseconds = divmod(microseconds, 7 * 24 * 60 * 60 * 10**6)
+    days, microseconds = divmod(microseconds, 24 * 60 * 60 * 10**6)
+    hours, microseconds = divmod(microseconds, 60 * 60 * 10**6)
+    minutes, microseconds = divmod(microseconds, 60 * 10**6)
+    seconds, microseconds = divmod(microseconds, 10**6)
+    print(f"Weeks: {weeks}")
+    print(f"Days: {days}")
+    print(f"Hours: {hours}")
+    print(f"minutes: {minutes}")
+    print(f"Seconds: {seconds}")
+    print(f"Microseconds: {microseconds}")
+
+
+
+    
 if __name__:
     # find_quotiant(12, 4)
     # sum_of_four()
@@ -457,10 +737,10 @@ if __name__:
     # find_two_largest()
     # find_largest_nested_if()
     # find_largest_compound()
-    # find_largest_first_large() # suitable approach for 4 numbers
+    # find_largest_first_large() suitable approach for 4 numbers
     # calculate_grade()
     # check_even_odd()
-    # diff_in_time("22:40", "12:00")
+    # diff_in_time()
     # sum_of_ten()
     # sum_of_n()
     # average_of_n()
@@ -485,4 +765,30 @@ if __name__:
     # find_abs_diff_2digit()
     # reverse_integer()
     # interchange_numbers()
-    interchange_without_var()
+    # interchange_without_var()
+    # mircorseconds_to_other_time()
+    # multiply_sum_digit()
+    # first_divisible_second()
+    # second_divisible_first()
+    # each_other_divisble()
+    # zero_sentinal()
+    # sentinal_last_nonzero()
+    # sentinal_largest()
+    # sentinal_smallest()
+    # small_from_10()
+    # even_odd_from_10()
+    # even_range_Limit()
+    # divisble_range()
+    # find_GCD()
+    # find_three_GCD()
+    # find_lcm()
+    # # find_digit()
+    # digits_to_num()
+    # digits_to_num_reverse()
+    # convert_base_9_obo()
+    # convert_base_9_decimal()
+    # convertBase9ToBinary()
+    # convertToHexa()
+    # ascending_order()
+    # pressure_temp_warning()
+    division_mod_without_operator()
