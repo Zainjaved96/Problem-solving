@@ -1,5 +1,5 @@
 from datetime import datetime
-import numpy as np
+# import numpy as np
 import sys
 import math 
 
@@ -634,24 +634,11 @@ def  convert_base_9_obo():
         print(number)
 
 def  convert_base_9_decimal():
-    n  = int(input('Enter a Number:'))
-    quotient = n
-    converted = False
-    remainders = []
-    while converted == False:
-        remainder = quotient % 9
-        remainder = remainders.append(remainder)
-        quotient = math.floor(quotient / 9)
-        if quotient == 0:
-            converted = True
-    
-    integer = int(''.join(map(str,remainders)))
-    print(integer)
-
-def convertBase9ToBinary():
     digits = []
     sentinal_given = False
-    i = 0
+    decimal = 0
+    power = 0
+    # Getting data one by one 
     while sentinal_given == False:
         n = int(input('Enter a Number: '))
         if n == 9 :
@@ -659,12 +646,45 @@ def convertBase9ToBinary():
         else : 
             digits.append(n)
     digits = reversed(digits)
-    total_sum = "0b0"
-    for digit in digits:
-        binary_value = bin(digit)
-        total_sum = bin(int(total_sum, 2) + int(binary_value, 2))
-    total_sum = total_sum[2:]
-    print(total_sum)
+
+    # Base 9 to decimal 
+    for digit in digits:    
+        decimal += digit * (9 ** power)
+        power += 1 
+    print(f" Decimal value is : {decimal}")
+
+def convertBase9ToBinary():
+    digits = []
+    sentinal_given = False
+    decimal = 0
+    power = 0
+    # Getting data one by one 
+    while sentinal_given == False:
+        n = int(input('Enter a Number: '))
+        if n == 9 :
+            sentinal_given = True
+        else : 
+            digits.append(n)
+    digits = reversed(digits)
+
+    # Base 9 to decimal 
+    for digit in digits:    
+        decimal += digit * (9 ** power)
+        power += 1 
+    print(decimal)
+    binary = ''
+    quotient = decimal 
+
+
+    # decimal to binary 
+    while True :
+        quotient  , remainder = divmod (quotient , 2 )
+        binary += str(remainder)
+        if quotient == 1:
+            break
+    print(f"Base 9 to Binary is : {binary}")
+
+
 
 def convertToHexa(): 
     remainders = []
