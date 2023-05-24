@@ -1,7 +1,9 @@
 from datetime import datetime
-import numpy as np
+# import numpy as np
 import sys
 import math 
+
+
 def find_quotiant(a, b):
     print(float(a / b))
 
@@ -30,7 +32,7 @@ def average_of_students():
 def percentage_of_students(a, b, c, d):
     total = 400
     sum_of_students = a + b + c + d
-    percentage = sum_of_students / total * 100
+    percentage = (sum_of_students / total) * 100
     print(f"{percentage}%")
     return percentage
 
@@ -43,32 +45,43 @@ def check_number(num):
 
 
 def check_divisible():
+    #fixme what of diviser = 0 ?
     num = int(input('Give a number: '))
     diviser = int(input("Check if it's divisble on: "))
-    if num % diviser == 0:
+    if num == 0  or diviser == 0:
+        print("0 can't be a valid divisor or divident")
+    elif num % diviser == 0:
         print("its divideable")
     else:
         print("not divideable")
 
 
 def sum_of_odd():
-    total = 0
-    for i in range(10):
-        number = int(input('Enter any Number'))
+    #fixme if user enter even numbers ?
+    total = 0 
+    odd_counter = 0
+    while odd_counter < 10:
+        number = int(input('Enter a Number'))
         if number % 2 == 0:
             continue
         else:
             total += number
+            odd_counter += 1
     print(total)
 
 
 def sum_of_even():
-    range_of_num = int(input("How many numbers you wanna give: "))
+    #fixme if user enter odd numbers ?
+    range_of_num = int(input("How many even numbers you wanna give: "))
     total = 0
-    for i in range(range_of_num):
-        number = int(input('Enter any Number: '))
+    even_counter = 0
+    while even_counter < range_of_num:
+        number = int(input('Enter a Number'))
         if number % 2 == 0:
             total += number
+            even_counter += 1
+        else:
+             continue
     print(total)
 
 
@@ -125,15 +138,12 @@ def find_largest_nested_if():
     if first_num > second_num:
         if first_num > third_num:
             print(f"{first_num} is the largest")
-            return
-    if second_num > first_num:
+    elif second_num > first_num:
         if second_num > third_num:
             print(f"{second_num} is the largest")
-            return
-    if third_num > second_num:
+    elif third_num > second_num:
         if third_num > first_num:
             print(f"{third_num} is the largest")
-            return
     print('No largest found numbers might be equal')
 
 
@@ -183,6 +193,7 @@ def calculate_grade():
 
 
 def check_even_odd():
+    #fixme if user enter 0?
     num = int(input("Enter a number: "))
     if num % 2 == 0:
         print('Number is even')
@@ -225,12 +236,13 @@ def average_of_n():
 
 
 def find_range(n):
-    for i in range(1, n + 1):
+    for i in range(0, n ):
         print(i)
 
 
 def find_fictorial(n):
     fictorial = 1
+    # enuirate try this 
     for i in range(2, n + 1):
         fictorial *= i
     print(fictorial)
@@ -326,7 +338,7 @@ def find_prime():
     for i in range(2,n):
        if n % i == 0:
           print("Not a prime number")
-          return 
+          break 
     print("Prime Number")
 
 def take_positive_only():
@@ -420,14 +432,16 @@ def   find_abs_diff_2digit():
 
 
 def  reverse_integer():
+    # todo without using list comprehension
     number = input('Enter a number: ')
-    length = len(number) - 1
-    reverse = []
-    for digit in number:
-       reverse.append(number[length])
-       length -= 1
-    print(int(''.join(reverse)))
-
+    length = len(number) - 1 
+    reverse_int = ''
+    while True:
+        if length < 0:
+            break
+        reverse_int += number[length]
+        length -= 1
+    print(reverse_int)
 
 def interchange_numbers():
     a = int(input("Enter First number:"))
@@ -438,6 +452,7 @@ def interchange_numbers():
     print(a,b)
 
 def interchange_without_var():
+    #fixme me without using python function
     a = int(input('Enter a first Number:'))
     b = int(input('Enter Second Number:'))
     b, a = a,b 
@@ -564,6 +579,7 @@ def divisble_range():
     print(divisble_range)
 
 def find_GCD():
+    #fixme do it without using math/numpy
     num1 = find_divisor()
     num2 = find_divisor()
     common_divisors = np.intersect1d(num1,num2)
@@ -571,6 +587,7 @@ def find_GCD():
     print(f"GCD of two number is {GCD}")
 
 def  find_three_GCD():
+    #fixme do it without using math/numpy
     num1 = find_divisor()
     num2 = find_divisor()
     num3 = find_divisor()
@@ -580,12 +597,14 @@ def  find_three_GCD():
 
 
 def find_lcm():
+    #fixme do it without using math/numpy
     num1 = int(input('Enter a Number :'))
     num2 = int(input('Enter a Number :'))
     print(math.lcm(num1,num2))
 
 
 def find_digit():
+    
     n = int(input('Enter a Number: '))
     print(len(str(n)))
 
@@ -618,6 +637,7 @@ def digits_to_num_reverse():
     print(f"Decimal number is {decimal}")
 
 def  convert_base_9_obo():
+    #fixme do it without using math/numpy
     n  = int(input('Enter a Number:'))
     quotient = n
     converted = False
@@ -632,24 +652,11 @@ def  convert_base_9_obo():
         print(number)
 
 def  convert_base_9_decimal():
-    n  = int(input('Enter a Number:'))
-    quotient = n
-    converted = False
-    remainders = []
-    while converted == False:
-        remainder = quotient % 9
-        remainder = remainders.append(remainder)
-        quotient = math.floor(quotient / 9)
-        if quotient == 0:
-            converted = True
-    
-    integer = int(''.join(map(str,remainders)))
-    print(integer)
-
-def convertBase9ToBinary():
     digits = []
     sentinal_given = False
-    i = 0
+    decimal = 0
+    power = 0
+    # Getting data one by one 
     while sentinal_given == False:
         n = int(input('Enter a Number: '))
         if n == 9 :
@@ -657,12 +664,45 @@ def convertBase9ToBinary():
         else : 
             digits.append(n)
     digits = reversed(digits)
-    total_sum = "0b0"
-    for digit in digits:
-        binary_value = bin(digit)
-        total_sum = bin(int(total_sum, 2) + int(binary_value, 2))
-    total_sum = total_sum[2:]
-    print(total_sum)
+
+    # Base 9 to decimal 
+    for digit in digits:    
+        decimal += digit * (9 ** power)
+        power += 1 
+    print(f" Decimal value is : {decimal}")
+
+def convertBase9ToBinary():
+    digits = []
+    sentinal_given = False
+    decimal = 0
+    power = 0
+    # Getting data one by one 
+    while sentinal_given == False:
+        n = int(input('Enter a Number: '))
+        if n == 9 :
+            sentinal_given = True
+        else : 
+            digits.append(n)
+    digits = reversed(digits)
+
+    # Base 9 to decimal 
+    for digit in digits:    
+        decimal += digit * (9 ** power)
+        power += 1 
+    print(decimal)
+    binary = ''
+    quotient = decimal 
+
+
+    # decimal to binary 
+    while True :
+        quotient  , remainder = divmod (quotient , 2 )
+        binary += str(remainder)
+        if quotient == 1:
+            break
+    print(f"Base 9 to Binary is : {binary}")
+
+
 
 def convertToHexa(): 
     remainders = []
@@ -679,6 +719,9 @@ def convertToHexa():
        string_num = str(remainder)
        num = string_num.replace('10', 'A').replace('11', 'B').replace('12', 'C').replace('13', 'D').replace('14', 'E').replace('15', 'F')
        print(num)
+
+
+
 def ascending_order():
         A = int(input('Enter a Number'))
         B = int(input('Enter a Number'))
@@ -718,9 +761,21 @@ def mircorseconds_to_other_time():
     print(f"Seconds: {seconds}")
     print(f"Microseconds: {microseconds}")
 
-
-
-    
+def count_vowels(words) :
+    for word in words:
+        original = word
+        word = word.lower()
+        vowels = ['a','e','i','o','u']
+        no_of_vowels = 0
+        for vowel in vowels:
+            while True:
+                # if the vowel exist it will keep removing it 
+                if vowel in word:
+                    no_of_vowels += 1
+                    word = word.replace(vowel,'',1)
+                else:
+                    break
+        print(f"{original} has {no_of_vowels} vowels ")
 if __name__:
     # find_quotiant(12, 4)
     # sum_of_four()
@@ -763,7 +818,7 @@ if __name__:
     # find_2_largest()
     # find_2digit_int()
     # find_abs_diff_2digit()
-    # reverse_integer()
+    reverse_integer()
     # interchange_numbers()
     # interchange_without_var()
     # mircorseconds_to_other_time()
@@ -791,4 +846,5 @@ if __name__:
     # convertToHexa()
     # ascending_order()
     # pressure_temp_warning()
-    division_mod_without_operator()
+    # division_mod_without_operator() 
+    # count_vowels(['Apple', 'Orange', 'aam'])
