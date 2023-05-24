@@ -51,6 +51,7 @@ def problem_5():
     num_students = 5
     total_marks = 0
 
+
     for i in range(num_students):
         marks = float(input("Enter the marks of student {}: ".format(i + 1)))
         total_marks += marks
@@ -73,11 +74,12 @@ def problem_6():
         marks = float(input("Enter the marks of student {}: ".format(i + 1)))
         total_marks += marks
 
+    percentage = (total_marks / max_marks) * 100
     # Calculate percentage
-    for i in range(num_students):
-        marks = float(input("Enter the marks of student {}: ".format(i + 1)))
-        percentage = (marks / max_marks) * 100
-        print("Percentage of student {}: {:.2f}%".format(i + 1, percentage))
+    # for i in range(num_students):
+    #     marks = float(input("Enter the marks of student {}: ".format(i + 1)))
+    #     percentage = (marks / max_marks) * 100
+    #     print("Percentage of student {}: {:.2f}%".format(i + 1, percentage))
 
 
 def problem_7():
@@ -109,6 +111,7 @@ def problem_9():
 
     # Initialize a variable to hold the sum of odd numbers
     odd_sum = 0
+    #fixme what if user enter odd number  ???
 
     # Get 10 numbers from the user
     for i in range(10):
@@ -123,7 +126,7 @@ def problem_9():
 
 
 def problem_10():
-
+    # fixme what if user enter odd number  ???
     even_sum = 0
 
     # Get the value of n from the user
@@ -158,13 +161,14 @@ def problem_11():
 
 
 def problem_12():
-    def fahrenheit_to_celsius(fahrenheit):
-        celsius = (fahrenheit - 32) * (5 / 9)
-        return celsius
+    # def fahrenheit_to_celsius(fahrenheit):
+    fahrenheit = int(input("Enter fahrenheit :"))
+    celsius = (fahrenheit - 32) * (5 / 9)
+        # return celsius
 
     # Example usage
-    fahrenheit = int(input("Enter fahrenheit :"))
-    celsius = fahrenheit_to_celsius(fahrenheit)
+
+    # celsius = fahrenheit_to_celsius(fahrenheit)
     print(celsius)
 
 
@@ -216,6 +220,8 @@ def problem_15():
 
 #take three numbers from the user and determine the largest
 def problem_16():
+
+    #fixme do it without max()
     def determine_largest_number(num1, num2, num3):
         largest_num = max(num1, num2, num3)
         return largest_num
@@ -254,6 +260,7 @@ def problem_17():
 
 #using compound composition
 def problem_18():
+    #fixme do it without max()
         def determine_largest_number_compound(num1, num2, num3, num4):
             largest_num = max(num1, num2, num3, num4)
             return largest_num
@@ -310,6 +317,7 @@ def problem_20():
 
 
 def problem_21():
+    #fixme what if user enter 0 ?
     def check_even_odd(number):
         if number % 2 == 0:
             return "Even"
@@ -392,6 +400,7 @@ def problem_27():
 
 def problem_28():
     n = int(input("Enter a positive integer: "))
+    factorial = 0
     if n < 0:
         print("Error: Please enter a positive integer.")
     elif n == 0:
@@ -455,6 +464,9 @@ def problem_32():
         num = int(input(f"Enter number {i + 1}: "))
         numbers.append(num)
 
+    # numbers.sort()
+    # numbers[0]
+    # numbers[-1]
     smallest = numbers[0]
     largest = numbers[0]
     for num in numbers:
@@ -467,6 +479,7 @@ def problem_32():
     print(f"The largest number is: {largest}")
 
 
+#Take n numbers from the user and determine that how many positive and negative
 def problem_33():
     n = int(input("Enter the value of 'n': "))
 
@@ -484,6 +497,8 @@ def problem_33():
     print(f"Number of negative integers: {negative_count}")
 
 
+
+#Take a positive integer n from the user. Display all the divisors of n
 def problem_34():
     n = int(input("Enter a positive integer: "))
 
@@ -496,6 +511,7 @@ def problem_34():
     print(f"The divisors of {n} are: {divisors}")
 
 
+#input a positive integer from the user and determine where the number is a perfect
 def problem_35():
     n = int(input("Enter a positive integer: "))
 
@@ -511,6 +527,7 @@ def problem_35():
         print(f"{n} is not a perfect number.")
 
 
+#Input a positive integer from the user and determine whether is a prime number or
 def problem_36():
     def is_prime(n):
         if n <= 1:
@@ -525,6 +542,9 @@ def problem_36():
     else:
         print(f"{num} is not a prime number.")
 
+
+# Take a positive integer from the user. Displaying an error message and prompting
+# for input again and again if the user enters invalid input (negative or zero)
 def problem_37():
     def is_prime(n):
         if n <= 1:
@@ -546,6 +566,9 @@ def problem_37():
     else:
         print(f"{num} is not a prime number.")
 
+
+# Write an algorithm to determine the sum of a variable number of positive integers taken from the user. The algorithm should keep prompting the user for more input
+# until the user enters the sentinel value -999.
 def problem_38():
     total = 0
     num = 0
@@ -558,6 +581,7 @@ def problem_38():
     print("The sum of the positive integers is:", total)
 
 
+# Display negative of a number
 def problem_39():
     # Get input from the user
     num = float(input("Enter a number: "))
@@ -569,6 +593,7 @@ def problem_39():
     print("The negative of", num, "is", negative_num)
 
 
+#  Find absolute of an input. Assume that the absolute operator is not available
 def problem_40():
     # Get input from the user
     num = float(input("Enter a number: "))
@@ -580,6 +605,7 @@ def problem_40():
     print("The absolute value of", num, "is", absolute_num)
 
 
+# input 2 number and find if both are even, both are odd, or 1 even 1 odd.
 def problem_41():
     # Get input from the user
     num1 = int(input("Enter the first number: "))
@@ -594,6 +620,7 @@ def problem_41():
         print("One number is even and the other is odd.")
 
 
+# Input 3 numbers and find how many are odd.
 def problem_42():
     # Get input from the user
     num1 = int(input("Enter the first number: "))
@@ -609,6 +636,7 @@ def problem_42():
     print("The number of odd numbers is:", odd_count)
 
 
+# Input 3 numbers and print the 2 largest numbers
 def problem_43():
     num1 = int(input("Enter the first number: "))
     num2 = int(input("Enter the second number: "))
@@ -619,6 +647,7 @@ def problem_43():
     print("The two largest numbers are:", largest, "and", second_largest)
 
 
+# Input a number and find if it is 2-digit positive integer or not
 def problem_44():
     # Get input from the user
     num = int(input("Enter a number: "))
@@ -630,6 +659,7 @@ def problem_44():
         print("The number is not a 2-digit positive integer.")
 
 
+# Input a 2-digit number and find the absolute difference between its digits
 def problem_45():
     number = int(input("Enter a 2-digit number: "))
     tens_digit = number // 10
@@ -638,6 +668,8 @@ def problem_45():
     print("Absolute difference between the digits:", absolute_difference)
 
 
+# Input an integer (up to 4 digits) and store its reverse in another variable. Then
+# display both integers.
 def problem_46():
     number = int(input("Enter an integer (up to 4 digits): "))
     reverse_number = int(str(number)[::-1])
@@ -645,6 +677,7 @@ def problem_46():
     print("Reversed number:", reverse_number)
 
 
+# Interchange two numbers
 def problem_47():
     a = int(input("Enter the first number (a): "))
     b = int(input("Enter the second number (b): "))
@@ -658,6 +691,7 @@ def problem_47():
     print("After interchange: a =", a, "b =", b)
 
 
+# Interchange two numbers without using an extra variable.
 def problem_48():
     a = int(input("Enter the first number (a): "))
     b = int(input("Enter the second number (b): "))
@@ -671,6 +705,7 @@ def problem_48():
     print("After interchange: a =", a, "b =", b)
 
 
+# Multiply a number with the sum of its digits
 def problem_49():
     number = int(input("Enter a number: "))
 
@@ -683,6 +718,8 @@ def problem_49():
     print("Result:", result)
 
 
+# Conversion of microseconds to weeks, days, hours, minutes, seconds, and
+# remaining microseconds.
 def problem_50():
     microseconds = int(input("Enter the number of microseconds: "))
     weeks = microseconds // (7 * 24 * 60 * 60 * 1000000)
@@ -704,6 +741,7 @@ def problem_50():
     print("Microseconds:", microseconds)
 
 
+# Input 2 numbers and print YES if 1st is divisible by 2nd
 def problem_51():
     num1 = int(input("Enter the first number: "))
     num2 = int(input("Enter the second number: "))
@@ -714,6 +752,7 @@ def problem_51():
         print("NO")
 
 
+# Input 2 numbers and print YES if 2nd is divisible by 1st
 def problem_52():
     num1 = int(input("Enter the first number: "))
     num2 = int(input("Enter the second number: "))
@@ -724,6 +763,7 @@ def problem_52():
         print("NO")
 
 
+# Input 2 numbers and print YES if one number is divisible by the other
 def problem_53():
     num1 = int(input("Enter the first number: "))
     num2 = int(input("Enter the second number: "))
@@ -734,6 +774,7 @@ def problem_53():
         print("NO")
 
 
+# Input numbers till user inputs a zero and display their sum.
 def problem_54():
     numbers = []
     num = int(input("Enter a number (or 0 to stop): "))
@@ -746,6 +787,7 @@ def problem_54():
     print("Sum of the numbers:", total)
 
 
+# Input numbers till user inputs a zero and at the end display last non-zero number
 def problem_55():
     last_non_zero = 0
     num = int(input("Enter a number (or 0 to stop): "))
@@ -757,6 +799,7 @@ def problem_55():
     print("Last non-zero number:", last_non_zero)
 
 
+# Input numbers till user inputs a zero and display the largest number
 def problem_56():
     numbers = []
     num = int(input("Enter a number (or 0 to stop): "))
@@ -772,6 +815,7 @@ def problem_56():
         print("No numbers were entered.")
 
 
+# Input numbers till user inputs a zero, and display the smallest number
 def problem_57():
     numbers = []
     num = int(input("Enter a number (or 0 to stop): "))
@@ -787,6 +831,7 @@ def problem_57():
         print("No numbers were entered.")
 
 
+# input numbers till user inputs a zero and display the largest number
 def problem_58():
     numbers = []
     num = int(input("Enter a number (or 0 to stop): "))
@@ -805,6 +850,7 @@ def problem_58():
         print("No numbers were entered.")
 
 
+# Input 10 numbers, and display the smallest number
 def problem_59():
     numbers = []
     for _ in range(10):
@@ -815,6 +861,8 @@ def problem_59():
     print("Smallest number:", min_num)
 
 
+# Input 10 numbers, and display count of even and odd numbers, separately, at the
+# end
 def problem_60():
     even_count = 0
     odd_count = 0
@@ -830,6 +878,8 @@ def problem_60():
     print("Count of odd numbers:", odd_count)
 
 
+# Input SLimit and elimit from the user, and display even numbers between range,
+# with both limit, included.
 def problem_61():
     slimit = int(input("Enter the starting limit: "))
     elimit = int(input("Enter the ending limit: "))
@@ -843,6 +893,8 @@ def problem_61():
         print(num)
 
 
+#  Input SLimit and ELimit from the user and display only those numbers between
+# range which are divisible by 2 or 3 or 5, with both limits include
 def problem_62():
     slimit = int(input("Enter the starting limit: "))
     elimit = int(input("Enter the ending limit: "))
@@ -852,6 +904,7 @@ def problem_62():
             print(num)
 
 
+# Input 2 numbers and find their GCD
 def problem_63():
     import math
 
@@ -862,6 +915,7 @@ def problem_63():
     print("GCD:", gcd)
 
 
+# Input 2 numbers and display their LCM.
 def problem_64():
     import math
 
@@ -872,12 +926,15 @@ def problem_64():
     print("LCM:", lcm)
 
 
+#  Input a number and display that how many digits it has.
 def problem_65():
     number = input("Enter a number: ")
     digit_count = len(number)
     print("The number has", digit_count, "digit(s).")
 
 
+# Input two positive integers a and b from the user. Determine the remainder of a/b.
+# Assume that the division and modulus operators are not available.
 def problem_66():
     def calculate_remainder(a, b):
         while a >= b:
@@ -890,6 +947,8 @@ def problem_66():
     print("The remainder of", a, "divided by", b, "is", remainder)
 
 
+# Input two positive integers and a and b from the user. Determine the integer of a/b.
+# Assume that the division operator is not available
 def problem_67():
     # Read input values
     a = int(input("Enter the value of a: "))
@@ -923,6 +982,9 @@ def problem_68():
     print("Remainder (a%b):", remainder)
 
 
+# Input a base-9 number, digit by digit, then convert it into decimal number. Digits of
+# the input will be entered in order from least significant to most significant. Since
+# valid digits are 0 to 8, hence any other input will be used as the sentinel value.
 def problem_69():
     def base9_to_decimal():
         base9_number = []
@@ -949,6 +1011,9 @@ def problem_69():
     print("Decimal number:", decimal)
 
 
+# Input a base-9 number, digit by digit, then convert it into decimal number. Digits of
+# the input will be entered in order from most significant to least significant. Since
+# valid digits are 0 to 8, hence any other input will be used as sentinel value.
 def problem_70():
     def base9_to_decimal():
         base9_number = []
@@ -987,12 +1052,14 @@ def problem_71():
         for digit in base9_digits:
             print(digit)
 
-    # Example usage
     decimal = int(input("Enter a decimal number: "))
     print("Base-9 representation:")
     decimal_to_base9(decimal)
 
 
+# Input a base-9 number, digit by digit, then convert it into decimal number. Digits of
+# the input will be entered in order from least significant to most significant. Since
+# valid digits are 0 to 8, hence any other input will be used as the sentinel value.
 def problem_72():
     def decimal_to_base9(decimal_number):
         base9_value = 0
@@ -1012,6 +1079,8 @@ def problem_72():
     print("Base-9 representation:", base9)
 
 
+# Input a decimal integer and display its hexadecimal equivalent digit-by-digit. The
+# hexadecimal output should be in order from least significant to most significan
 def problem_73():
     def decimal_to_hex(decimal_number):
         hex_digits = []
@@ -1033,6 +1102,8 @@ def problem_73():
     decimal_to_hex(decimal)
 
 
+# three numbers denoted by the variables A, B and C are supplied as input data. Print
+# these three number in ascending order.
 def problem_74():
     A = float(input("Enter the value for A: "))
     B = float(input("Enter the value for B: "))
