@@ -890,6 +890,162 @@ def problem_66():
     print("The remainder of", a, "divided by", b, "is", remainder)
 
 
+def problem_67():
+    # Read input values
+    a = int(input("Enter the value of a: "))
+    b = int(input("Enter the value of b: "))
+
+    # Initialize variables
+    quotient = 0
+
+    # Perform repeated subtraction to calculate integer division
+    while a >= b:
+        a -= b
+        quotient += 1
+
+    # Output the integer division result
+    print("Integer division result (a/b):", quotient)
+
+
+def problem_68():
+    # Read input values
+    a = int(input("Enter the value of a: "))
+    b = int(input("Enter the value of b: "))
+
+    # Initialize variables
+    remainder = a
+
+    # Perform repeated subtraction to calculate the remainder
+    while remainder >= b:
+        remainder -= b
+
+    # Output the remainder
+    print("Remainder (a%b):", remainder)
+
+
+def problem_69():
+    def base9_to_decimal():
+        base9_number = []
+
+        while True:
+            digit = input("Enter a digit (0-8) of the base-9 number (Enter any other value to stop): ")
+
+            if digit.isdigit() and int(digit) in range(9):
+                base9_number.append(int(digit))
+            else:
+                break
+
+        decimal_number = 0
+        power = 0
+
+        for digit in base9_number:
+            decimal_number += digit * (9 ** power)
+            power += 1
+
+        return decimal_number
+
+    # Example usage
+    decimal = base9_to_decimal()
+    print("Decimal number:", decimal)
+
+
+def problem_70():
+    def base9_to_decimal():
+        base9_number = []
+
+        while True:
+            digit = input("Enter a digit (0-8) of the base-9 number (Enter any other value to stop): ")
+
+            if digit.isdigit() and int(digit) in range(9):
+                base9_number.insert(0, int(digit))
+            else:
+                break
+
+        decimal_number = 0
+        power = 0
+
+        for digit in base9_number:
+            decimal_number += digit * (9 ** power)
+            power += 1
+
+        return decimal_number
+
+    # Example usage
+    decimal = base9_to_decimal()
+    print("Decimal number:", decimal)
+
+
+def problem_71():
+    def decimal_to_base9(decimal_number):
+        base9_digits = []
+
+        while decimal_number > 0:
+            remainder = decimal_number % 9
+            base9_digits.insert(0, remainder)
+            decimal_number //= 9
+
+        for digit in base9_digits:
+            print(digit)
+
+    # Example usage
+    decimal = int(input("Enter a decimal number: "))
+    print("Base-9 representation:")
+    decimal_to_base9(decimal)
+
+
+def problem_72():
+    def decimal_to_base9(decimal_number):
+        base9_value = 0
+        power = 0
+
+        while decimal_number > 0:
+            remainder = decimal_number % 9
+            base9_value += remainder * (10 ** power)
+            decimal_number //= 9
+            power += 1
+
+        return base9_value
+
+    # Example usage
+    decimal = int(input("Enter a decimal number: "))
+    base9 = decimal_to_base9(decimal)
+    print("Base-9 representation:", base9)
+
+
+def problem_73():
+    def decimal_to_hex(decimal_number):
+        hex_digits = []
+
+        while decimal_number > 0:
+            remainder = decimal_number % 16
+            hex_digits.append(remainder)
+            decimal_number //= 16
+
+        hex_digits.reverse()
+
+        for digit in hex_digits:
+            hex_digit = hex(digit)[2:]
+            print(hex_digit.upper())
+
+    # Example usage
+    decimal = int(input("Enter a decimal number: "))
+    print("Hexadecimal representation (least significant to most significant):")
+    decimal_to_hex(decimal)
+
+
+def problem_74():
+    A = float(input("Enter the value for A: "))
+    B = float(input("Enter the value for B: "))
+    C = float(input("Enter the value for C: "))
+
+    # Sort the numbers in ascending order
+    numbers = [A, B, C]
+    numbers.sort()
+
+    # Print the sorted numbers
+    print("The numbers in ascending order are:", numbers[0], numbers[1], numbers[2])
+
+
 if __name__ == "__main__":
 
     # problem_1()
@@ -956,11 +1112,15 @@ if __name__ == "__main__":
     # problem_63()
     # problem_64()
     # problem_65()
-     problem_66()
-
-
-
-
+    # problem_66()
+    # problem_67()
+    # problem_68()
+    # problem_69()
+    # problem_70()
+    # problem_71()
+    # problem_72()
+    # problem_73()
+    problem_74()
 
 
 
