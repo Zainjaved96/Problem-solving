@@ -318,7 +318,7 @@ def find_divisor():
        if n % i == 0:
           divisors.append(i)
     print(divisors)
-    return divisors 
+    return divisors , n
            
 
 def find_perfect_positive():
@@ -455,9 +455,10 @@ def interchange_without_var():
     #fixme me without using python function
     a = int(input('Enter a first Number:'))
     b = int(input('Enter Second Number:'))
-    b, a = a,b 
+    a = a + b 
+    b = a - b
+    a = a - b
     print(a,b)
-
 def  multiply_sum_digit():
     n = input('Enter a Multi-digit number:')
     digits = []
@@ -580,28 +581,48 @@ def divisble_range():
 
 def find_GCD():
     #fixme do it without using math/numpy
-    num1 = find_divisor()
-    num2 = find_divisor()
-    common_divisors = np.intersect1d(num1,num2)
-    GCD = np.max(common_divisors)
-    print(f"GCD of two number is {GCD}")
+    divisors1 = find_divisor()
+    divisors2 = find_divisor()  
+    common_divisors = []
+
+    for y in divisors2:
+        if y in divisors1:
+            common_divisors.append(y)
+    GCD = common_divisors[0]
+    for divisor in common_divisors:
+        if divisor > GCD:
+            GCD = divisor
+    print(GCD)
 
 def  find_three_GCD():
     #fixme do it without using math/numpy
-    num1 = find_divisor()
-    num2 = find_divisor()
-    num3 = find_divisor()
-    common_divisors = np.intersect1d(num1,num2,num3)
-    GCD = np.max(common_divisors)
-    print(f"GCD of three numbers is: {GCD}")
-
+    divisors1 = find_divisor()
+    divisors2 = find_divisor()
+    divisors3 = find_divisor()
+    common_divisors = []
+    for x in divisors1:
+        if x in divisors2 and x in divisors3:
+            common_divisors.append(x)
+    GCD = common_divisors[0]
+    for divisor in common_divisors:
+        if divisor > GCD:
+            GCD = divisor
+    print(GCD)  
 
 def find_lcm():
     #fixme do it without using math/numpy
-    num1 = int(input('Enter a Number :'))
-    num2 = int(input('Enter a Number :'))
-    print(math.lcm(num1,num2))
+    divisors1 , a = find_divisor()
+    divisors2, b = find_divisor()  
+    common_divisors = []
 
+    for y in divisors2:
+        if y in divisors1:
+            common_divisors.append(y)
+    GCD = common_divisors[0]
+    for divisor in common_divisors:
+        if divisor > GCD:
+            GCD = divisor
+    print(f"LCM = {(a * b) / GCD}")
 
 def find_digit():
     
@@ -645,7 +666,7 @@ def  convert_base_9_obo():
     while converted == False:
         remainder = quotient % 9
         remainder = remainders.append(remainder)
-        quotient = math.floor(quotient / 9)
+        quotient = round(quotient / 9)
         if quotient == 0:
             converted = True
     for number in remainders:
@@ -818,7 +839,7 @@ if __name__:
     # find_2_largest()
     # find_2digit_int()
     # find_abs_diff_2digit()
-    reverse_integer()
+    # reverse_integer()
     # interchange_numbers()
     # interchange_without_var()
     # mircorseconds_to_other_time()
@@ -836,7 +857,7 @@ if __name__:
     # divisble_range()
     # find_GCD()
     # find_three_GCD()
-    # find_lcm()
+    find_lcm()
     # # find_digit()
     # digits_to_num()
     # digits_to_num_reverse()
