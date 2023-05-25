@@ -686,7 +686,11 @@ def convert_base_9_decimal():
             digits.append(n)
     digits = reversed(digits)
 
+<<<<<<< HEAD
     # Base 9 to decimal
+=======
+    # Base 9 to decimal 
+>>>>>>> 42fc8810fa9bfc011763726cfd1ef012d12255db
     for digit in digits:
         decimal += digit * (9 ** power)
         power += 1
@@ -707,7 +711,11 @@ def convertBase9ToBinary():
             digits.append(n)
     digits = reversed(digits)
 
+<<<<<<< HEAD
     # Base 9 to decimal
+=======
+    # Base 9 to decimal 
+>>>>>>> 42fc8810fa9bfc011763726cfd1ef012d12255db
     for digit in digits:
         decimal += digit * (9 ** power)
         power += 1
@@ -873,5 +881,9 @@ if __name__:
     # convertToHexa()
     # ascending_order()
     # pressure_temp_warning()
+<<<<<<< HEAD
     # division_mod_without_operator()
+=======
+    # division_mod_without_operator() 
+>>>>>>> 42fc8810fa9bfc011763726cfd1ef012d12255db
     # count_vowels(['Apple', 'Orange', 'aam']
