@@ -45,7 +45,6 @@ def check_number(num):
 
 
 def check_divisible():
-    # fixme what of diviser = 0 ?
     num = int(input('Give a number: '))
     diviser = int(input("Check if it's divisble on: "))
     if num == 0 or diviser == 0:
@@ -57,7 +56,7 @@ def check_divisible():
 
 
 def sum_of_odd():
-    # fixme if user enter even numbers ?
+
     total = 0
     odd_counter = 0
     while odd_counter < 10:
@@ -71,7 +70,7 @@ def sum_of_odd():
 
 
 def sum_of_even():
-    # fixme if user enter odd numbers ?
+  
     range_of_num = int(input("How many even numbers you wanna give: "))
     total = 0
     even_counter = 0
@@ -193,7 +192,6 @@ def calculate_grade():
 
 
 def check_even_odd():
-    # fixme if user enter 0?
     num = int(input("Enter a number: "))
     if num % 2 == 0:
         print('Number is even')
@@ -438,16 +436,13 @@ def find_abs_diff_2digit():
 
 def reverse_integer():
     # todo without using list comprehension
-    number = input('Enter a number: ')
-    length = len(number) - 1
     reverse_int = ''
-    while True:
-        if length < 0:
-            break
-        reverse_int += number[length]
-        length -= 1
+    quotient = int(input('Enter a number: '))
+    while quotient > 0:
+        last_digit = quotient % 10 
+        reverse_int += str(last_digit)
+        quotient = quotient // 10 
     print(reverse_int)
-
 
 def interchange_numbers():
     a = int(input("Enter First number:"))
@@ -459,7 +454,7 @@ def interchange_numbers():
 
 
 def interchange_without_var():
-    # fixme me without using python function
+   
     a = int(input('Enter a first Number:'))
     b = int(input('Enter Second Number:'))
 
@@ -601,7 +596,6 @@ def divisble_range():
 
 def find_GCD():
 
-    #fixme do it without using math/numpy
     divisors1 = find_divisor()
     divisors2 = find_divisor()  
     common_divisors = []
@@ -616,7 +610,7 @@ def find_GCD():
     print(GCD)
 
 def  find_three_GCD():
-    #fixme do it without using math/numpy
+    
     divisors1 = find_divisor()
     divisors2 = find_divisor()
     divisors3 = find_divisor()
@@ -631,7 +625,7 @@ def  find_three_GCD():
     print(GCD)  
 
 def find_lcm():
-    #fixme do it without using math/numpy
+    
     divisors1 , a = find_divisor()
     divisors2, b = find_divisor()  
     common_divisors = []
@@ -682,7 +676,7 @@ def digits_to_num_reverse():
 
 
 def convert_base_9_obo():
-    # fixme do it without using math/numpy
+
     n = int(input('Enter a Number:'))
     quotient = n
     converted = False
@@ -828,6 +822,14 @@ def count_vowels(words):
         print(f"{original} has {no_of_vowels} vowels ")
 
 
+        list1 = ["Apple","Mango","Orange","Banana"]
+        # output
+            # apple 2
+            # Mango 2
+            # Orange 3
+            # Banana 3
+
+
 if __name__:
     # find_quotiant(12, 4)
     # sum_of_four()
@@ -870,7 +872,7 @@ if __name__:
     # find_2_largest()
     # find_2digit_int()
     # find_abs_diff_2digit()
-    # reverse_integer()
+    reverse_integer()
     # interchange_numbers()
     # interchange_without_var()
     # mircorseconds_to_other_time()
@@ -888,7 +890,7 @@ if __name__:
     # divisble_range()
     # find_GCD()
     # find_three_GCD()
-    find_lcm()
+    # find_lcm()
     # # find_digit()
     # digits_to_num()
     # digits_to_num_reverse()
@@ -899,4 +901,4 @@ if __name__:
     # ascending_order()
     # pressure_temp_warning()
     # division_mod_without_operator() 
-    # count_vowels(['Apple', 'Orange', 'aam']
+    # count_vowels(["Apple","Mango","Orange","Banana"])
