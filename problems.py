@@ -830,6 +830,40 @@ def count_vowels(words):
             # Banana 3
 
 
+
+
+def find_pairs(numbers):
+    temp = []
+    pair = 0
+    for number in numbers:
+        if number in temp:
+            continue 
+
+        count = numbers.count(number)
+        pair += count // 2
+        temp.append(number)
+    print(pair)
+
+def abd_sequence():
+    value = input('Enter Alphabets: ')
+    new_value = ''
+    for i in range(0, len(value)-1):
+        try:
+            alphabet = value[i]
+        except:
+            break
+        if value.count(alphabet) > 1:
+            if value.count(alphabet) % 2 == 0:
+                pass
+            else:
+                new_value += alphabet
+                value = value.replace(alphabet,'')
+        else:
+            new_value += alphabet
+            value = value.replace(alphabet,'')
+            
+    print(new_value)
+    
 if __name__:
     # find_quotiant(12, 4)
     # sum_of_four()
@@ -872,7 +906,7 @@ if __name__:
     # find_2_largest()
     # find_2digit_int()
     # find_abs_diff_2digit()
-    reverse_integer()
+    # reverse_integer()
     # interchange_numbers()
     # interchange_without_var()
     # mircorseconds_to_other_time()
@@ -902,3 +936,5 @@ if __name__:
     # pressure_temp_warning()
     # division_mod_without_operator() 
     # count_vowels(["Apple","Mango","Orange","Banana"])
+    # find_pairs([10,10,30,50,60,70,70,70,10,10,70,60])
+    abd_sequence()
