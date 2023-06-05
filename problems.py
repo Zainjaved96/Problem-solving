@@ -863,7 +863,87 @@ def abd_sequence():
             value = value.replace(alphabet,'')
             
     print(new_value)
-    
+
+
+def longest_common_prefix(arr):
+    if not strs:
+            return ""
+    # check list present
+    try:
+        big_prefix = strs[0][0]
+    except:
+        return  ""
+    prefix = big_prefix
+    has_prefix = True
+    prefix_count = 0
+
+    # Check if there's a prefix at all
+    for word in strs:
+        # check empty word
+        try:
+            if prefix == word[prefix_count]:
+                pass
+            else:
+                has_prefix = False
+        except:
+            return ""
+            
+    if has_prefix == False:
+        return ""
+    # Find the shortest word in strs
+    shortest = strs[0]
+    for word in strs:
+        if len(word) < len(shortest):
+            shortest = word
+
+    # Run the loop for the shortest and check every word's index
+    for i in range(1, len(shortest)):
+        for word in strs:
+            prefix = shortest[i]
+            if prefix == word[i]:
+                pass
+            else:
+                # If they do not match, return the prefix obtained
+                return big_prefix
+        # Otherwise, concatenate
+        big_prefix += prefix
+
+    return big_prefix
+        
+    print(big_prefix)
+
+
+
+# One test case left
+def valid_parenthesis():
+        s = '[(])'
+        old_s  = s
+        valid = True 
+        isEven = True
+        joinCount = 0 
+        parenthesis = ['()', "[]",'{}']
+        for  bracket in parenthesis:
+            if bracket[0] in s or bracket[1] in s:
+                no_of_open = s.count(bracket[0])
+                no_of_close = s.count(bracket[1])
+                if old_s.count(bracket):
+                    joinCount += 1
+                if no_of_open != no_of_close:
+                    isEven =False
+                    break
+                for i in range(0,no_of_open):
+                    print(s)
+                    if isEven:
+                        if s.find(bracket[0]) > s.find(bracket[1]) :
+                            return print(False)
+                        else :
+                            s = s.replace(bracket[0], '',1)
+                            s = s.replace(bracket[1], '',1)
+            
+        if isEven and joinCount > 0:
+            return print(valid)
+        else:
+            return print(False)
 if __name__:
     # find_quotiant(12, 4)
     # sum_of_four()
@@ -937,4 +1017,6 @@ if __name__:
     # division_mod_without_operator() 
     # count_vowels(["Apple","Mango","Orange","Banana"])
     # find_pairs([10,10,30,50,60,70,70,70,10,10,70,60])
-    abd_sequence()
+    # abd_sequence()
+    # longest_common_prefix(["flower"])
+    valid_parenthesis()
